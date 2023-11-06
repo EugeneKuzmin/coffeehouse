@@ -1,0 +1,132 @@
+/* ------------------- */
+/* Custom properties   */
+/* ------------------- */
+
+:root {
+    /* colors */
+    --clr-text-dark: 40 2% 25%;
+    --clr-text-light: 28 29% 84%;
+    --clr-text-accent: 24 25% 58%;
+
+    --clr-background-body: 28 29% 84%;
+    --clr-background-container: 231 77% 90%;
+    --clr-background-backdrop   : 35 9% 37%;
+
+    --clr-border-light: 27 14% 72%;
+    --clr-border-dark: 35 9% 37%;
+    
+    /* font-sizes */
+    --fs-72px: 72px;
+    --fs-60px: 60px;
+    --fs-32px: 32px;
+    --fs-24px: 24px;
+    --fs-16px: 16px;
+    --fs-10px: 10px;
+    
+    /* font-families */
+    --ff-inter: 'Inter', sans-serif;
+}
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+    margin: 0; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 400;
+}
+
+/* set up the body */
+body {
+    font-family: var(--ff-inter);
+    background-color: hsl( var(--clr-background-body) );
+    min-height: 100vh;
+}
+
+/* make images easier to work with */
+img,
+picutre {
+    max-width: 100%;
+    display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* ------------------- */
+/* Utility classes     */
+/* ------------------- */
+
+/* general */
+.heading_1{
+    color: hsl(var(--clr-text-dark));
+    font-size: var(--fs-72px);
+    font-weight: 600;
+    line-height: 105%;
+}
+
+.heading_1_accent{
+    font-style: italic;
+}
+
+.heading_2{
+    color: hsl(var(--clr-text-dark));
+    font-size: var(--fs-60px);
+    font-weight: 600;
+    line-height: 125%;
+}
+
+.heading_3{
+    color: hsl(var(--clr-text-dark));
+    font-size: var(--fs-24px);
+    font-weight: 600;
+    line-height: 125%;
+}
+
+.font-medium{
+    color: hsl(var(--clr-text-dark));
+    font-size: var(--fs-16px);
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.font-caption{
+    color: hsl(var(--clr-text-dark));
+    font-size: var(--fs-10px);
+    font-weight: 400;
+    line-height: 140%;
+}
+
+
