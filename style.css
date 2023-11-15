@@ -169,7 +169,11 @@ select {
 
 .flex{
     display: flex;
-    gap: 3rem;
+    gap: 40[x];
+}
+
+.gap-40 {
+    gap: 40px;
 }
 
 .flex-btn{
@@ -326,6 +330,27 @@ select {
 
 .button-burger :first-child {
     margin-bottom: 8px;
+}
+
+.button-burger-active[aria-expanded="false"]{
+    display: none;
+}
+.button-burger[aria-expanded="true"]{
+    display: none;
+}
+
+@media (min-width:768px) {
+    .button-burger,
+    .button-burger-active {
+        display: none;
+    }
+
+}
+
+@media (max-width:768px) {
+    .menu {
+        display: none;
+    }
 }
 
 
