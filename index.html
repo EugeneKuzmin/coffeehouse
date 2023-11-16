@@ -11,37 +11,63 @@
     <title>Coffee house</title>
 </head>
 <body>
-    <header>
-        <div>
-            <img src="./assets/logo.png" alt="logo">
-        </div>
-        <div class="menu">
-            <nav class="flex primary-navigation">
-                <ul>
-                    <li>Favorite coffee</li>
-                    <li>About</li>
-                    <li>Mobile app</li>
-                    <li>Contact us</li>
-                </ul>
-            </nav>
-        </div>
-        <button type="button" data-nav-toggle class="button-burger" aria-expanded="false">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="2" viewBox="0 0 18 2" fill="none">
-                <path d="M1 1H17" stroke="#403F3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="2" viewBox="0 0 18 2" fill="none">
-                <path d="M1 1H17" stroke="#403F3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </button>
+    <div class="wrapper">
+        <header>
+                <div class="flex justify-content-between fc-text-dark">
+                    <div class="logo">
+                        <img src="./assets/logo.png" alt="logo">
+                    </div>
+                    <div class="menu">
+                        <nav class="primary-navigation">
+                            <ul>
+                                <li>Favorite coffee</li>
+                                <li>About</li>
+                                <li>Mobile app</li>
+                                <li>Contact us</li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="link menu-font">
+                        <div class="flex-btn">
+                            Menu
+                            <img src="./assets/coffee-cup.svg">
+                        </div>
+                    </div>
+                    <button type="button" data-nav-toggle class="button-burger" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="2" viewBox="0 0 18 2" fill="none">
+                            <path d="M1 1H17" stroke="#403F3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="2" viewBox="0 0 18 2" fill="none">
+                            <path d="M1 1H17" stroke="#403F3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
 
-        <button type="button" data-nav-toggle class="button-burger-active" aria-expanded="false">
-            <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
-                <line x1="0" y1="14" x2="14" y2="0" stroke-width="1.5" stroke="#403F3D"/>
-                <line x1="0" y1="0" x2="14" y2="14" stroke-width="1.5" stroke="#403F3D"/>
-              </svg>
-        </button>
-        <button type="button" class="mobile-nav-toggle"></button>
-    </header>
-    Enjoy premium coffee at our charming cafe
+                    <button type="button" data-nav-toggle class="button-burger-active" aria-expanded="false">
+                        <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="0" y1="14" x2="14" y2="0" stroke-width="1.5" stroke="#403F3D"/>
+                            <line x1="0" y1="0" x2="14" y2="14" stroke-width="1.5" stroke="#403F3D"/>
+                        </svg>
+                    </button>
+
+                </div>
+                <div class="hero">
+                    <div class="hero-text">
+                        <div class="hero-header">
+                            <span class="fc-text-accent">Enjoy</span> premium coffee at our charming cafe
+                        </div>
+                        <div class="hero-secondary-header">
+                            With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular destination for coffee lovers and those seeking a warm and inviting space to enjoy their favorite beverage.
+                        </div>
+                        <div class="flex">
+                            <button class="button-primary font-link-n-button">Menu<img src="./assets/coffee-cup.svg"></button>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </header>
+    </div>
 </body>
 </html>
