@@ -170,6 +170,10 @@ select {
     margin: 1rem
 }
 
+.mt-40px {
+    margin-top: 40px;
+}
+
 .link:hover{
     display: inline-block;
     border-bottom: 1px solid hsl(var(--clr-text-dark));
@@ -261,14 +265,22 @@ select {
     background-color: transparent;
 }
 
-.tab-item-image{
+.tab-item-image,
+.tab-item-image-inective {
     height: 30px;
     aspect-ratio: 1;
     display: flex;
-    background-color: hsl( var(--clr-background-body) );
     place-content: center center;
     border-radius: 50%;
     padding: 7px;
+}
+
+.tab-item-image {
+    background-color: hsl( var(--clr-background-body) );
+}
+
+.tab-item-image-inective {
+    background-color: hsl( var(--clr-border-light) );
 }
 
 .button-secondary{
@@ -513,6 +525,23 @@ footer {
 
 .contact-text {
     color: hsl(var(--clr-text-light));
+    font-size: var(--fs-24px);
+    font-weight: 600;
+    line-height: 125%;
+
+}
+
+/* menu */
+.menu-heading-text {
+    width: 800px;
+    color: hsl(var(--clr-text-dark));
+    font-size: var(--fs-60px);
+    font-weight: 600;
+    line-height: 125%;
+}
+
+.menu-card-heading {
+    color: hsl(var(--clr-text-dark));
     font-size: var(--fs-24px);
     font-weight: 600;
     line-height: 125%;
