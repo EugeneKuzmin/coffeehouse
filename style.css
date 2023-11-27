@@ -190,8 +190,8 @@ select {
     margin-top: 40px;
 }
 
-.ml-8px {
-    margin-top: 40px;
+.ml-8 {
+    margin-left: 8px;
 }
 
 /* paddings */
@@ -203,8 +203,12 @@ select {
 .link {
     position: relative;
 }
+.link-contact {
+    position: relative;
+}
 
-.link::before {
+.link::before,
+.link-contact::before {
     content: "";
     position: absolute;
     display: block;
@@ -217,10 +221,17 @@ select {
     transform-origin: top left;
     transition: transform 0.5s ease;
   }
+
+  .link-contact::before {
+    background-color: hsl( var(--clr-text-light));
+  }
   
-  .link:hover::before {
+  .link:hover::before,
+  .link-contact:hover:before {
     transform: scaleX(1);
   }
+
+
 
 .font-caption{
     color: hsl(var(--clr-text-dark));
@@ -231,6 +242,10 @@ select {
 
 .flex{
     display: flex;
+}
+
+.flex-column{
+    flex-direction: column;
 }
 
 .inline {
@@ -252,6 +267,10 @@ select {
 
 .gap-12 {
     gap: 12px;
+}
+
+.gap-8 {
+    gap: 8px;
 }
 
 .flex-btn{
@@ -464,6 +483,8 @@ select {
 }
 
 
+
+
 @media (min-width:768px) {
     .button-burger,
     .button-burger-active {
@@ -482,7 +503,8 @@ select {
 .wrapper {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 40px;
+    padding-inline: 40px;
+    padding-block: 20px;
 }
 
 .wrapper-menu {
