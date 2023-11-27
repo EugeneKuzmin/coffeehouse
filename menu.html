@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-menu-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-menu-16x16.png">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
@@ -11,20 +13,22 @@
         <header>
             <div class="flex justify-content-between fc-text-dark">
                 <div class="logo">
-                    <img src="./assets/logo.png" alt="logo">
+                    <a href="./index.html">
+                        <img src="./assets/logo.png" alt="logo">
+                    </a>
                 </div>
                 <div class="menu">
                     <nav class="primary-navigation">
                         <ul>
-                            <li>Favorite coffee</li>
-                            <li>About</li>
-                            <li>Mobile app</li>
-                            <li>Contact us</li>
+                            <li class="link"><a href="./index.html#favourites_coffee">Favorite coffee</a></li>
+                            <li class="link"><a href="./index.html#about">About</a></li>
+                            <li class="link"><a href="./index.html#about">Mobile app</a></li>
+                            <li class="link"><a href="#footer">Contact us</a></li>
                         </ul>
                     </nav>
                 </div>
-                <div class="flex align-items-center link menu-font">
-                    <div class="flex-btn">
+                <div class="flex align-items-center menu-font">
+                    <div class="flex-btn underlined">
                         Menu
                         <img src="./assets/coffee-cup.svg">
                     </div>
@@ -69,7 +73,7 @@
             </div>
             <div class="flex mt-40 gap-40 justify-content-center">
                 <article class="menu-card">
-                    <img src="./assets/coffee-1.jpg" alt="irish coffee">
+                    <div><img src="./assets/coffee-1.jpg" alt="irish coffee"></div>
                     <div class="menu-card-info">
                         <div>
                             <div class="menu-card-heading">
@@ -85,7 +89,7 @@
                     </div>
                 </article>
                 <article class="menu-card">
-                    <img src="./assets/coffee-2.jpg" alt="Kahlua coffee">
+                    <div><img src="./assets/coffee-2.jpg" alt="Kahlua coffee"></div>
                     <div class="menu-card-info">
                         <div>
                             <div class="menu-card-heading">
@@ -101,7 +105,7 @@
                     </div>
                 </article>
                 <article class="menu-card">
-                    <img src="./assets/coffee-3.jpg" alt="Honey raf">
+                    <div><img src="./assets/coffee-3.jpg" alt="Honey raf"></div>
                     <div class="menu-card-info">
                         <div>
                             <div class="menu-card-heading">
@@ -117,7 +121,7 @@
                     </div>
                 </article>
                 <article class="menu-card">
-                    <img src="./assets/coffee-4.jpg" alt="Ice cappuccino">
+                    <div><img src="./assets/coffee-4.jpg" alt="Ice cappuccino"></div>
                     <div class="menu-card-info">
                         <div>
                             <div class="menu-card-heading">
@@ -135,7 +139,7 @@
             </div>
             <div class="flex mt-40 gap-40 justify-content-center">
                 <article class="menu-card">
-                    <img src="./assets/coffee-5.jpg" alt="Espresso">
+                    <div><img src="./assets/coffee-5.jpg" alt="Espresso"></div>
                     <div class="menu-card-info">
                         <div>
                             <div class="menu-card-heading">
@@ -151,7 +155,7 @@
                     </div>
                 </article>
                 <article class="menu-card">
-                    <img src="./assets/coffee-6.jpg" alt="Latte">
+                    <div><img src="./assets/coffee-6.jpg" alt="Latte"></div>
                     <div class="menu-card-info">
                         <div>
                             <div class="menu-card-heading">
@@ -167,7 +171,7 @@
                     </div>
                 </article>
                 <article class="menu-card">
-                    <img src="./assets/coffee-7.jpg" alt="Latte macchiato">
+                    <div><img src="./assets/coffee-7.jpg" alt="Latte macchiato"></div>
                     <div class="menu-card-info">
                         <div>
                             <div class="menu-card-heading">
@@ -183,7 +187,7 @@
                     </div>
                 </article>
                 <article class="menu-card">
-                    <img src="./assets/coffee-8.jpg" alt="Coffee with cognac">
+                    <div><img src="./assets/coffee-8.jpg" alt="Coffee with cognac"></div>
                     <div class="menu-card-info">
                         <div>
                             <div class="menu-card-heading">
@@ -199,7 +203,7 @@
                     </div>
                 </article>
             </div>
-            <footer class="mt-100">
+            <footer id="footer" class="mt-100">
                 <div>
                     <div class="footer-main-text">
                         <div class="text-align-center">Sip, Savor, Smile.</div>

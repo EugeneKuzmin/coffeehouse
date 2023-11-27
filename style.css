@@ -76,6 +76,10 @@ a {
     text-decoration: none;
  }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* set up the body */
 body {
     font-family: var(--ff-inter);
@@ -196,9 +200,27 @@ select {
     padding-bottom: 40px;
 }
 
-.link:hover{
-    border-bottom: 2px solid hsl(var(--clr-text-dark));
+.link {
+    position: relative;
 }
+
+.link::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: hsl(var(--clr-text-dark));
+    transform: scaleX(0);
+    transform-origin: top left;
+    transition: transform 0.5s ease;
+  }
+  
+  .link:hover::before {
+    transform: scaleX(1);
+  }
 
 .font-caption{
     color: hsl(var(--clr-text-dark));
@@ -235,6 +257,11 @@ select {
 .flex-btn{
     display: flex;
     gap: 8px;
+}
+
+.flex-btn.underlined {
+    border-bottom: 2px solid hsl( var(--clr-text-dark));
+
 }
 
 .oblique-style {
@@ -597,11 +624,23 @@ main.flow > *:where(:not(:last-child)) {
     gap: 40px;
     margin-top: 40px;
 }
+
+.about-pictures > div {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
 .about-pictures > div > img {
     object-fit: cover;
     height: 100%;
     width: 100%;
-    border-radius: 20px;
+    transform: scale(1.1);
+    transition: transform 0.5s ease-in-out;
+}
+
+.about-pictures > div > img:hover{
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
 }
 
 .about-pictures > :nth-child(1) {
@@ -697,10 +736,27 @@ footer > * {
     flex-direction: column;
     width: 310px;
     height: 506px;
+    border-radius: 40px;
+    border: 1px solid hsl( var(--clr-border-light) );
 }
 
-.menu-card > img {
+.menu-card > div {
     border-radius: 40px;
+    overflow: hidden;
+}
+
+.menu-card > div > img {
+    transform: scale(1.1);
+    transition: transform 0.5s ease-in-out;
+    
+}
+.menu-card:hover {
+    cursor: pointer;
+}
+
+.menu-card:hover > div > img{
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
 }
 
 .menu-card-info {
