@@ -20,17 +20,19 @@
                 <div class="menu">
                     <nav class="primary-navigation">
                         <ul>
-                            <li>Favorite coffee</li>
-                            <li>About</li>
-                            <li>Mobile app</li>
-                            <li>Contact us</li>
+                            <li class="link"><a href="#favourites_coffee">Favorite coffee</a></li>
+                            <li class="link"><a href="#about">About</a></li>
+                            <li class="link"><a href="#mobile_app">Mobile app</a></li>
+                            <li class="link"><a href="#footer">Contact us</a></li>
                         </ul>
                     </nav>
                 </div>
-                <div class="flex align-items-center link menu-font">
-                    <div class="flex-btn">
-                        Menu
-                        <img src="./assets/coffee-cup.svg">
+                <div class="flex align-items-center menu-font">
+                    <div>
+                        <div class="flex-btn link">
+                            <a href="./menu.html">Menu</a>
+                            <img src="./assets/coffee-cup.svg">
+                        </div>
                     </div>
                 </div>
                 <button type="button" data-nav-toggle class="button-burger" aria-expanded="false">
@@ -53,7 +55,7 @@
             
         </header>
 
-        <main>
+        <main class="flow">
             <section id="enjoy">
                 <div class="hero">
                     <div class="hero-text">
@@ -74,13 +76,12 @@
                 <div class="favorite-header-text">
                     Choose your <span class="fc-text-accent oblique-style"> favorite </span> coffee
                 </div>
-                <div class="flex justify-content-between mt-40px align-items-center">
+                <div class="flex justify-content-between mt-40 align-items-center">
                     <div id="arrowLeft" class="button-outline icon-dark">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M18.5 12H6M6 12L12 6M6 12L12 18" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    
             
                     <div>
                         <div class="slider-pic-container" id="carousel">
@@ -124,7 +125,7 @@
                 </div>
             </section>
             <!-- About -->
-            <section>
+            <section id="about">
                 <div class="about">
                     <div class="about-text">
                         Resource is <span class="fc-text-accent oblique-style">the perfect and cozy place</span> where you can enjoy a variety of hot beverages, relax, catch up with friends, or get some work done.
@@ -142,7 +143,7 @@
                 </div>
             </section>
             <!-- Mobile App -->
-            <section>
+            <section id="mobile_app">
                 <div class="flex download-section justify-content-between">
                     <div class="download-app-text">
                         <div class="download-primary-text">
@@ -183,19 +184,16 @@
                     </div>
                     <div class="flex download-app-image">
                         <img src="./assets/mobile-screens.svg" alt="mobile phones">
-            
-            
                     </div>
                 </div>
-            
             </section>
-            <footer>
+            <footer id="footer">
                 <div>
                     <div class="footer-main-text">
-                        Sip, Savor, Smile.
-                        <span class="fc-text-accent">It’s coffee time!</span>
+                        <div class="text-align-center">Sip, Savor, Smile.</div>
+                        <span class="fc-text-accent oblique-style">It’s coffee time!</span>
                     </div>
-                    <div class="flex">
+                    <div class="flex mt-40 gap-12">
                         <button class="button-outline icon-light">
                             <svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M23 1.01006C23 1.01006 20.9821 2.20217 19.86 2.54006C19.2577 1.84757 18.4573 1.35675 17.567 1.13398C16.6767 0.911216 15.7395 0.967251 14.8821 1.29451C14.0247 1.62177 13.2884 2.20446 12.773 2.96377C12.2575 3.72309 11.9877 4.62239 12 5.54006V6.54006C10.2426 6.58562 8.50127 6.19587 6.93101 5.4055C5.36074 4.61513 4.01032 3.44869 3 2.01006C3 2.01006 -1 11.0101 8 15.0101C5.94053 16.408 3.48716 17.109 1 17.0101C10 22.0101 21 17.0101 21 5.51006C20.9991 5.23151 20.9723 4.95365 20.92 4.68006C21.9406 3.67355 23 1.01006 23 1.01006Z" stroke="#E1D4C9" stroke-linecap="round" stroke-linejoin="round"/>
@@ -212,7 +210,6 @@
                             <svg width="13" height="22" viewBox="0 0 13 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 1H9C7.67392 1 6.40215 1.52678 5.46447 2.46447C4.52678 3.40215 4 4.67392 4 6V9H1V13H4V21H8V13H11L12 9H8V6C8 5.73478 8.10536 5.48043 8.29289 5.29289C8.48043 5.10536 8.73478 5 9 5H12V1Z" stroke="#E1D4C9" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-            
                         </button>
                     </div>
                 </div>
@@ -221,13 +218,18 @@
                         Contact us
                     </div>
                     <div class="font-link-n-button fc-text-light">
+                        <p class="inline">
+                            <a href="https://www.google.com/maps/place/Larnaka+Medieval+Fort/@34.9088994,33.6341972,17z/data=!4m6!3m5!1s0x14e082bd2c938593:0x811447d1f5d741ad!8m2!3d34.910338!4d33.6376042!16s%2Fg%2F1tfd9t1f?entry=ttu">
+                                <img src="./assets/pin-alt.svg" alt="location">
+                                8558 Green Rd., LA
+                            </a>
+                        </p>
                         <div class="flex align-items-center">
-                            <img class="height20px" src="./assets/pin-alt.svg" alt="location">
-                            <div class="ml-8px flex align-items-center">8558 Green Rd., LA</div>
-                        </div>
-                        <div class="flex align-items-center">
+                            <a href="tel:+16035550123">
                             <img src="./assets/phone.svg" alt="phone">
-                            <div class="flex align-items-center ml-8px">+1 (603) 555-0123</div>
+                            +1 (603) 555-0123
+                            </a>
+                        </div>
                             <div class="flex align-items-center">
                                 <img src="./assets/clock.svg" alt="time">
                                 <div class="flex align-items-center ml-8px">Mon-Sat: 9:00 AM – 23:00 PM</div>

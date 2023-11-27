@@ -69,11 +69,19 @@ nav > ul > li {
     list-style: none;
 }
 
+/* reset a decoration */
+
+a {
+    color: inherit;
+    text-decoration: none;
+ }
+
 /* set up the body */
 body {
     font-family: var(--ff-inter);
     background-color: hsl( var(--clr-background-body) );
     min-height: 100vh;
+    width: 100%;
 }
 
 /* make images easier to work with */
@@ -170,11 +178,11 @@ select {
     margin: 1rem
 }
 
-.mt-20px {
-    margin-top: 20px;
+.mt-100 {
+    margin-top: 100px;
 }
 
-.mt-40px {
+.mt-40 {
     margin-top: 40px;
 }
 
@@ -189,8 +197,7 @@ select {
 }
 
 .link:hover{
-    display: inline-block;
-    border-bottom: 1px solid hsl(var(--clr-text-dark));
+    border-bottom: 2px solid hsl(var(--clr-text-dark));
 }
 
 .font-caption{
@@ -204,12 +211,25 @@ select {
     display: flex;
 }
 
+.inline {
+    display: inline-block;
+    white-space:nowrap
+}
+
 .gap-40 {
     gap: 40px;
 }
 
 .gap-20 {
     gap: 20px;
+}
+
+.gap-16 {
+    gap: 16px;
+}
+
+.gap-12 {
+    gap: 12px;
 }
 
 .flex-btn{
@@ -257,6 +277,7 @@ select {
     border-radius: 100px;
     border: none;
     background-color: hsl( var(--clr-background-body) );
+    transition: all 0.5s ease-in-out;
 }
 
 .button-primary img{
@@ -266,6 +287,10 @@ select {
 
 .button-primary:hover img{
     display: block;
+}
+
+.button-primary:hover {
+    cursor: pointer;
 }
 
 .tab-item{
@@ -326,7 +351,7 @@ select {
 
 .button-store,
 .button-store svg path {
-    transition: all 0.2s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
 
 
@@ -346,6 +371,7 @@ select {
 .button-store:hover{
     background-color: hsl(var(--clr-background-container));
     color: hsl( var(--clr-text-light));
+    cursor: pointer;
 }
 
 .button-outline{
@@ -356,6 +382,11 @@ select {
     place-content: center;
     flex-wrap: wrap;
     background-color: transparent;
+    transition: all 0.5s ease-in-out;
+}
+
+.button-outline:hover{
+    cursor: pointer;
 }
 
 .icon-dark {
@@ -423,11 +454,15 @@ select {
 /* wrapper */
 .wrapper {
     max-width: 1440px;
-    margin: 20px auto;
-    padding-inline: 40px;
+    margin: 0 auto;
+    padding: 40px;
 }
 
-main > *:where(:not(:last-child)) {
+.wrapper-menu {
+    margin-bottom:40px;
+}
+
+main.flow > *:where(:not(:last-child)) {
     margin-bottom: 100px;
 }
 
@@ -624,6 +659,7 @@ footer {
     padding: 100px;
     display: flex;
     gap: 100px;
+    border-radius: 40px;
 }
 footer > * {
     flex-basis: 50%;
@@ -646,15 +682,21 @@ footer > * {
 
 /* menu */
 .menu-heading-text {
-    width: 800px;
+    max-width: 800px;
     color: hsl(var(--clr-text-dark));
     font-size: var(--fs-60px);
     font-weight: 600;
     line-height: 125%;
+    margin-inline: auto;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .menu-card {
+    display: flex;
+    flex-direction: column;
     width: 310px;
+    height: 506px;
 }
 
 .menu-card > img {
@@ -662,7 +704,15 @@ footer > * {
 }
 
 .menu-card-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 20px;
+}
+
+.menu-card-text {
+    max-width: 270px;
 }
 
 .menu-card-heading {
