@@ -222,7 +222,7 @@ select {
     left: 0;
     background-color: hsl(var(--clr-text-dark));
     transform: scaleX(0);
-    transform-origin: top left;
+    transform-origin: center;
     transition: transform 0.5s ease;
   }
 
