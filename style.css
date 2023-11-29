@@ -342,6 +342,7 @@ select {
     height: auto;
     visibility: visible;
     opacity: 1;
+    transition: visibility 0s, opacity 0.7s linear;
 }
 
 .button-primary:hover {
@@ -371,6 +372,7 @@ select {
     border: 1px solid hsl(var(--clr-border-light));
     background-color: transparent;
     color: hsl( var(--clr-text-dark));
+    transition: 0.5s ease-in-out;
 }
 
 .tab-item-inactive:hover{
