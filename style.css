@@ -213,6 +213,7 @@ select {
 }
 .link-contact {
     position: relative;
+    padding-bottom: 4px;
 }
 
 .link::before,
@@ -806,6 +807,11 @@ main.flow > *:where(:not(:last-child)) {
     .download-section {
         flex-wrap: wrap;
     }
+
+    .download-app-image {
+        margin: 0 auto;
+        max-width: 630px;
+    }
 }
 
 /* footer */
@@ -839,6 +845,7 @@ footer > * {
 @media (max-width:900px) {
     footer {
         flex-wrap: wrap;
+        padding-inline: 60px;
     }
 }
 @media (max-width:500px) {
