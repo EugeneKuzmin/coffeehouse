@@ -18,6 +18,7 @@
     /* font-sizes */
     --fs-72px: 72px;
     --fs-60px: 60px;
+    --fs-42px: 42px;
     --fs-32px: 32px;
     --fs-24px: 24px;
     --fs-16px: 16px;
@@ -38,6 +39,9 @@
 *::before,
 *::after {
     box-sizing: border-box;
+}
+* {
+    outline: 1px solid red;
 }
 
 /* Reset margins */
@@ -230,9 +234,14 @@ select {
     background-color: hsl( var(--clr-text-light));
   }
   
-  .link:hover::before,
-  .link-contact:hover:before {
-    transform: scaleX(1);
+ 
+
+  @media (hover: hover) {
+    /* when hover is supported */
+    .link:hover::before,
+    .link-contact:hover:before {
+      transform: scaleX(1);
+    }
   }
 
 
@@ -250,6 +259,10 @@ select {
 
 .flex-column{
     flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
 }
 
 .inline {
@@ -507,7 +520,7 @@ select {
 
 
 
-@media (min-width:768px) {
+@media (min-width:900px) {
     .button-burger,
     .button-burger-active {
         display: none;
@@ -515,7 +528,7 @@ select {
 
 }
 
-@media (max-width:768px) {
+@media (max-width:900px) {
     .menu {
         display: none;
     }
@@ -570,7 +583,7 @@ main.flow > *:where(:not(:last-child)) {
 
 }
 .hero-text {
-    width: 530px;
+    max-width: 530px;
     gap:30px;
 }
 
@@ -590,6 +603,28 @@ main.flow > *:where(:not(:last-child)) {
     font-weight: 600;
     line-height: 150%;
     color: hsl( var(--clr-text-light));
+}
+
+@media (max-width:900px) {
+    .hero {
+        padding-inline: 60px;
+    }
+
+    .button-primary img{
+        height: auto;
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@media (max-width:480px) {
+    .hero-header {
+        font-size: var(--fs-42px);
+    }
+    .hero {
+        padding-inline: 16px;
+    }
+ 
 }
 
 /* ******************** */
@@ -617,13 +652,11 @@ main.flow > *:where(:not(:last-child)) {
     display: flex;
     overflow: hidden;
     scroll-behavior: smooth;
-    width: 480px;
-    height: 480px;
 }
 
-.slider-pic-container picture {
-    height: 560px;
-}
+/* .slider-pic-container picture {
+    height: 480px;
+} */
 
 .favorite-slider-text {
     max-width: 480px;
@@ -647,6 +680,12 @@ main.flow > *:where(:not(:last-child)) {
 .active-control {
     background-color: hsl(var(--clr-border-dark));
 
+}
+
+@media (max-width:900px) {
+    /* .slider-pic-container picture {
+        height: 480px;
+    } */
 }
 
 /* ******************** */
@@ -686,21 +725,46 @@ main.flow > *:where(:not(:last-child)) {
 }
 
 .about-pictures > :nth-child(1) {
-    width: 660px;
     aspect-ratio: 66 / 59;
 }
 .about-pictures > :nth-child(2) {
-    width: 660px;
     aspect-ratio: 66 / 43;
     margin-bottom: 160px;
 }
 .about-pictures > :nth-child(3){
-    width: 660px;
     aspect-ratio: 66 / 43;
 }
 .about-pictures > :nth-child(4) {
     aspect-ratio: 66 / 59;
-    margin-top: -160px;
+    margin-top: calc( -100vw / 9);
+}
+
+@media (max-width:900px) {
+    .about-pictures {
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .about-pictures > :nth-child(1) {
+        aspect-ratio: 688 / 590;
+    }
+    .about-pictures > :nth-child(2) {
+        display: none;
+    }
+    .about-pictures > :nth-child(3){
+        display: none;
+    }
+    .about-pictures > :nth-child(4) {
+        aspect-ratio: 688 / 590;
+        margin-top: 0;
+    }
+ 
+}
+@media (max-width:500px) {
+    .about-text {
+        font-size: var(--fs-32px);
+        
+    }
+ 
 }
 
 
@@ -710,7 +774,7 @@ main.flow > *:where(:not(:last-child)) {
 /* ******************** */
 
 .download-section {
-    height: 630px;
+    min-height: 630px;
     gap: 100px;
     
 }
@@ -734,6 +798,16 @@ main.flow > *:where(:not(:last-child)) {
     flex-basis: 100%;
 }
 
+.download-app-image > img {
+    width: 100%;
+}
+
+@media (max-width:900px) {
+    .download-section {
+        flex-wrap: wrap;
+    }
+}
+
 /* footer */
 footer {
     background-color: hsl(var(--clr-background-container));
@@ -743,7 +817,7 @@ footer {
     border-radius: 40px;
 }
 footer > * {
-    flex-basis: 50%;
+    flex-basis: 100%;
 }
 
 .footer-main-text {
@@ -759,6 +833,21 @@ footer > * {
     font-weight: 600;
     line-height: 125%;
 
+}
+
+
+@media (max-width:900px) {
+    footer {
+        flex-wrap: wrap;
+    }
+}
+@media (max-width:500px) {
+    .footer-main-text {
+        font-size: var(--fs-32px);
+    }
+    footer {
+        padding-inline: 60px;
+    }
 }
 
 /* menu */
