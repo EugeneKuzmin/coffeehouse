@@ -32,16 +32,11 @@
 /* Reset               */
 /* ------------------- */
 
-/* https://piccalil.li/blog/a-modern-css-reset/ */
-
 /* Box sizing */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
-}
-* {
-    outline: 1px solid red;
 }
 
 /* Reset margins */
@@ -186,6 +181,10 @@ select {
     margin: 1rem
 }
 
+.mt-93 {
+    margin-top: 100px;
+}
+
 .mt-100 {
     margin-top: 100px;
 }
@@ -238,7 +237,6 @@ select {
  
 
   @media (hover: hover) {
-    /* when hover is supported */
     .link:hover::before,
     .link-contact:hover:before {
       transform: scaleX(1);
@@ -352,16 +350,20 @@ select {
     transition: visibility 0s, opacity 0.7s linear;
 }
 
-.button-primary:hover img{
-    height: auto;
-    visibility: visible;
-    opacity: 1;
-    transition: visibility 0s, opacity 0.7s linear;
-}
+@media (hover: hover) {
+    .button-primary:hover img{
+        height: auto;
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0s, opacity 0.7s linear;
+    }
+    
+    .button-primary:hover {
+        cursor: pointer;
+    }
+  }
 
-.button-primary:hover {
-    cursor: pointer;
-}
+
 
 .tab-item{
     display: flex;
@@ -389,12 +391,14 @@ select {
     transition: 0.5s ease-in-out;
 }
 
-.tab-item-inactive:hover{
-    cursor: pointer;
-    background-color: hsl(var(--clr-background-container));
-    color: hsl(var(--clr-text-light));
-    transition: 0.5s ease-in-out;
+@media (hover: hover) {
+    .tab-item-inactive:hover{
+        cursor: pointer;
+        background-color: hsl(var(--clr-background-container));
+        color: hsl(var(--clr-text-light));
+        transition: 0.5s ease-in-out;
 
+    }
 }
 
 .tab-item-image,
@@ -423,17 +427,18 @@ select {
     border-radius: 100px;
 }
 
-.button-secondary:hover{
-    background: hsl(var(--clr-background-container));
-    color: hsl( var(--clr-text-light));
-    border: none;
+@media (hover: hover) {
+    .button-secondary:hover{
+        background: hsl(var(--clr-background-container));
+        color: hsl( var(--clr-text-light));
+        border: none;
+    }
 }
 
 .button-store,
 .button-store svg path {
     transition: all 0.7s ease-in-out;
   }
-
 
 .button-store{
     width: 200px;
@@ -442,16 +447,6 @@ select {
     border: 1px solid hsl(var(--clr-border-dark));
     border-radius: 100px;
     padding: 12px 20px;
-}
-
-.button-store:hover svg path{
-    fill: hsl( var(--clr-text-light));
-}
-
-.button-store:hover{
-    background-color: hsl(var(--clr-background-container));
-    color: hsl( var(--clr-text-light));
-    cursor: pointer;
 }
 
 .button-outline{
@@ -465,34 +460,50 @@ select {
     transition: all 0.7s ease-in-out;
 }
 
-.button-outline:hover{
-    cursor: pointer;
-}
+
 
 .icon-dark {
     border: 1px solid hsl( var(--clr-border-dark));
 }
 
-.icon-dark:hover {
-    background-color: hsl( var(--clr-background-container) );
-}
+
 
 .icon-light {
     border: 1px solid hsl( var(--clr-border-light));
 }
 
-.icon-light:hover {
-    background-color: hsl( var(--clr-background-body) );
-}
 
-.icon-dark:hover svg path{
-    stroke: hsl( var(--clr-text-light));
-    transition: all 0.7s ease-in-out;
-}
 
-.icon-light:hover svg path {
-    stroke: hsl(var(--clr-text-dark));
-    transition: all 0.7s ease-in-out;
+@media (hover: hover) {
+    .button-store:hover svg path{
+        fill: hsl( var(--clr-text-light));
+    }
+    
+    .button-store:hover{
+        background-color: hsl(var(--clr-background-container));
+        color: hsl( var(--clr-text-light));
+        cursor: pointer;
+    }
+    .button-outline:hover{
+        cursor: pointer;
+    }
+    .icon-dark:hover {
+        background-color: hsl( var(--clr-background-container) );
+    }
+    .icon-light:hover {
+        background-color: hsl( var(--clr-background-body) );
+    }
+    
+    .icon-dark:hover svg path{
+        stroke: hsl( var(--clr-text-light));
+        transition: all 0.7s ease-in-out;
+    }
+    
+    .icon-light:hover svg path {
+        stroke: hsl(var(--clr-text-dark));
+        transition: all 0.7s ease-in-out;
+    }
+   
 }
 
 .button-burger,
@@ -511,6 +522,10 @@ select {
     margin-bottom: 8px;
 }
 
+[data-menu-button="false"] {
+    display: none;
+}
+
 .button-burger-active[aria-expanded="false"]{
     display: none;
 }
@@ -518,21 +533,19 @@ select {
     display: none;
 }
 
-
-
-
 @media (min-width:900px) {
-    .button-burger,
-    .button-burger-active {
+    .menu-button {
         display: none;
     }
 
 }
 
 @media (max-width:900px) {
-    .menu {
+    .menu,
+    [data-menu-link] {
         display: none;
     }
+    
 }
 
 /* wrapper */
@@ -724,19 +737,16 @@ main.flow > *:where(:not(:last-child)) {
 
 .about-pictures > div > img {
     object-fit: cover;
+    object-position: center;
     height: 100%;
     width: 100%;
     transform: scale(1.1);
     transition: transform 0.5s ease-in-out;
 }
 
-.about-pictures > div > img:hover{
-    transform: scale(1);
-    transition: transform 0.5s ease-in-out;
-}
-
 .about-pictures > :nth-child(1) {
     aspect-ratio: 66 / 59;
+    height: 590px;
 }
 .about-pictures > :nth-child(2) {
     aspect-ratio: 66 / 43;
@@ -747,7 +757,15 @@ main.flow > *:where(:not(:last-child)) {
 }
 .about-pictures > :nth-child(4) {
     aspect-ratio: 66 / 59;
+    height: 590px;
     margin-top: calc( -100vw / 9);
+}
+
+@media (hover: hover) {
+    .about-pictures > div > img:hover{
+        transform: scale(1);
+        transition: transform 0.5s ease-in-out;
+    }
 }
 
 @media (max-width:900px) {
@@ -756,7 +774,7 @@ main.flow > *:where(:not(:last-child)) {
     }
 
     .about-pictures > :nth-child(1) {
-        min-height: 590px;
+        aspect-ratio: auto;
     }
     .about-pictures > :nth-child(2) {
         display: none;
@@ -765,7 +783,7 @@ main.flow > *:where(:not(:last-child)) {
         display: none;
     }
     .about-pictures > :nth-child(4) {
-        min-height: 590px;
+        aspect-ratio: auto;
         margin-top: 0;
     }
  
@@ -788,7 +806,7 @@ main.flow > *:where(:not(:last-child)) {
 
 
 /* ******************** */
-/* *******Mobile App******* */
+/* *******Mobile App*** */
 /* ******************** */
 
 .download-section {
@@ -900,6 +918,11 @@ footer > * {
     text-align: center;
 }
 
+.menu-category-buttons {
+    justify-content: center;
+    gap: 16px;
+}
+
 .menu-card {
     display: flex;
     flex-direction: column;
@@ -919,13 +942,17 @@ footer > * {
     transition: transform 0.5s ease-in-out;
     
 }
-.menu-card:hover {
-    cursor: pointer;
-}
 
-.menu-card:hover > div > img{
-    transform: scale(1);
-    transition: transform 0.5s ease-in-out;
+@media (hover: hover) {
+
+    .menu-card:hover {
+        cursor: pointer;
+    }
+
+    .menu-card:hover > div > img{
+        transform: scale(1);
+        transition: transform 0.5s ease-in-out;
+    }
 }
 
 .menu-card-info {
@@ -946,6 +973,35 @@ footer > * {
     font-weight: 600;
     line-height: 125%;
     margin-bottom: 12px;
+
+}
+
+@media (min-width:900px) {
+    .data-refresh-menu {
+        display: none;
+    }
+}
+@media (max-width:900px) {
+    .menu-product-cards {
+        flex-wrap: wrap;
+    }
+    .menu-product-bottom-cards {
+        display: none;
+    }
+    .mt-93 {
+        margin-top: 93px;
+    }
+}
+
+@media (max-width:480px) {
+    .menu-heading-text {
+        font-size: var(--fs-32px);
+    }
+
+    .menu-category-buttons {
+        gap: unset;
+        justify-content: space-between;
+    }
 
 }
 

@@ -1,4 +1,5 @@
 const dataNavToggle = document.querySelectorAll('[data-nav-toggle]')
+
 dataNavToggle.forEach(btn => {
     btn.addEventListener('click',() => {
         let fl = 'true'
