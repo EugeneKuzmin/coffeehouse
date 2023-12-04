@@ -233,8 +233,6 @@ select {
   .link-contact::before {
     background-color: hsl( var(--clr-text-light));
   }
-  
- 
 
   @media (hover: hover) {
     .link:hover::before,
@@ -242,8 +240,6 @@ select {
       transform: scaleX(1);
     }
   }
-
-
 
 .font-caption{
     color: hsl(var(--clr-text-dark));
@@ -724,41 +720,46 @@ main.flow > *:where(:not(:last-child)) {
 }
 
 .about-pictures {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+    display: flex;
     gap: 40px;
     margin-top: 40px;
 }
 
-.about-pictures > div {
+.about-pictures > * {
+    flex-basis: 50%;
+}
+
+.about-pictures  div {
     border-radius: 20px;
     overflow: hidden;
 }
 
-.about-pictures > div > img {
+.about-pictures  img {
     object-fit: cover;
     object-position: center;
-    height: 100%;
-    width: 100%;
     transform: scale(1.1);
     transition: transform 0.5s ease-in-out;
 }
 
-.about-pictures > :nth-child(1) {
+.about-pictures-column-1,
+.about-pictures-column-2 {
+    gap: 40px;
+}
+
+.about-pictures-column-1 > :nth-child(1) {
     aspect-ratio: 66 / 59;
-    height: 590px;
 }
-.about-pictures > :nth-child(2) {
+.about-pictures-column-1 > :nth-child(2) {
     aspect-ratio: 66 / 43;
-    margin-bottom: 160px;
+    
 }
-.about-pictures > :nth-child(3){
+
+.about-pictures-column-2 > :nth-child(1){
     aspect-ratio: 66 / 43;
 }
-.about-pictures > :nth-child(4) {
+.about-pictures-column-2 > :nth-child(2) {
     aspect-ratio: 66 / 59;
-    height: 590px;
-    margin-top: calc( -100vw / 9);
+ 
 }
 
 @media (hover: hover) {
@@ -769,23 +770,29 @@ main.flow > *:where(:not(:last-child)) {
 }
 
 @media (max-width:900px) {
-    .about-pictures {
-        grid-template-columns: repeat(1,1fr);
-    }
 
-    .about-pictures > :nth-child(1) {
-        aspect-ratio: auto;
-    }
-    .about-pictures > :nth-child(2) {
-        display: none;
-    }
-    .about-pictures > :nth-child(3){
-        display: none;
-    }
-    .about-pictures > :nth-child(4) {
-        aspect-ratio: auto;
-        margin-top: 0;
-    }
+.about-pictures {
+    flex-direction: column;
+}
+.about-pictures-column-1 > :nth-child(1){
+    aspect-ratio: auto;
+    height: 590px;
+}
+.about-pictures-column-2 > :nth-child(2) {
+    aspect-ratio: auto;
+    height: 590px;
+}
+.about-pictures-column-1 > :nth-child(2){
+    display: none;
+}
+.about-pictures-column-2 > :nth-child(1) {
+    display: none;
+}
+
+.about-pictures  img {
+    height: 100%;
+    width: 100%;
+}
  
 }
 @media (max-width:480px) {
