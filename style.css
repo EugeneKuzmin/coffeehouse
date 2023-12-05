@@ -193,6 +193,10 @@ select {
     margin-top: 40px;
 }
 
+.mt--35 {
+    margin-top: -35px;
+}
+
 .ml-8 {
     margin-left: 8px;
 }
@@ -211,8 +215,10 @@ select {
     position: relative;
 }
 .link-contact {
+    display: inline-flex;
     position: relative;
     padding-bottom: 4px;
+    width: fit-content;
 }
 
 .link::before,
@@ -359,8 +365,6 @@ select {
     }
   }
 
-
-
 .tab-item{
     display: flex;
     background-color: hsl(var(--clr-background-container));
@@ -456,19 +460,13 @@ select {
     transition: all 0.7s ease-in-out;
 }
 
-
-
 .icon-dark {
     border: 1px solid hsl( var(--clr-border-dark));
 }
 
-
-
 .icon-light {
     border: 1px solid hsl( var(--clr-border-light));
 }
-
-
 
 @media (hover: hover) {
     .button-store:hover svg path{
@@ -735,7 +733,7 @@ main.flow > *:where(:not(:last-child)) {
 }
 
 .about-pictures  img {
-    object-fit: cover;
+    width: 100%;
     object-position: center;
     transform: scale(1.1);
     transition: transform 0.5s ease-in-out;
@@ -747,6 +745,8 @@ main.flow > *:where(:not(:last-child)) {
 }
 
 .about-pictures-column-1 > :nth-child(1) {
+    width: 100%;
+    max-height: 590px;
     aspect-ratio: 66 / 59;
 }
 .about-pictures-column-1 > :nth-child(2) {
