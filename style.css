@@ -768,7 +768,7 @@ main.flow > *:where(:not(:last-child)) {
 }
 
 @media (hover: hover) {
-    .about-pictures > div > img:hover{
+    .about-pictures img:hover{
         transform: scale(1);
         transition: transform 0.5s ease-in-out;
     }
