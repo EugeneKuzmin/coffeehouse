@@ -794,16 +794,27 @@ main.flow > *:where(:not(:last-child)) {
     display: none;
 }
 
+.mt--35 {
+    margin-top: 0;
+}
+
 .about-pictures  img {
     height: 100%;
     width: 100%;
+}
+
+.about-pictures  img {
+    transform: scale(1.05);
 }
  
 }
 @media (max-width:480px) {
     .about-text {
         font-size: var(--fs-32px);
-        
+    }
+
+    .about-pictures  img {
+        transform: scale(1.2);
     }
 
     .about-pictures > :nth-child(1) {
