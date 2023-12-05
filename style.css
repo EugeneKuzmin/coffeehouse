@@ -197,6 +197,10 @@ select {
     margin-top: -35px;
 }
 
+.mt--115 {
+    margin-top: -115px;
+}
+
 .ml-8 {
     margin-left: 8px;
 }
@@ -727,14 +731,15 @@ main.flow > *:where(:not(:last-child)) {
     flex-basis: 50%;
 }
 
-.about-pictures  div {
+.about-pictures-column-1 > div,
+.about-pictures-column-2 > div {
     border-radius: 20px;
     overflow: hidden;
 }
 
 .about-pictures  img {
+    object-fit: cover;
     width: 100%;
-    object-position: center;
     transform: scale(1.1);
     transition: transform 0.5s ease-in-out;
 }
