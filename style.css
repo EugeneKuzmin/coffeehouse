@@ -821,7 +821,7 @@ main.flow > *:where(:not(:last-child)) {
     }
 
     .about-pictures  img {
-        transform: scale(1.2);
+        transform: scale(1.24);
     }
 
     .about-pictures > :nth-child(1) {
