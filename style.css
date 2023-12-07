@@ -678,6 +678,7 @@ main.flow > *:where(:not(:last-child)) {
 
 .slider-pic-container {
     display: flex;
+    justify-content: center;
     overflow: hidden;
     scroll-behavior: smooth;
 }
