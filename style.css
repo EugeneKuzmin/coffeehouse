@@ -87,6 +87,10 @@ body {
     width: 100%;
 }
 
+body:has(dialog[open]) {
+    overflow: hidden
+}
+
 /* make images easier to work with */
 img,
 picutre {
@@ -890,7 +894,10 @@ main.flow > *:where(:not(:last-child)) {
   
 }
 
-/* footer */
+/* ******************** */
+/* *******Footer*** */
+/* ******************** */
+
 footer {
     background-color: hsl(var(--clr-background-container));
     padding: 100px;
@@ -947,7 +954,10 @@ footer > * {
     }
 }
 
-/* menu */
+/* ******************** */
+/* *******Menu*** */
+/* ******************** */
+
 .menu-heading-text {
     max-width: 800px;
     color: hsl(var(--clr-text-dark));
@@ -1017,6 +1027,7 @@ footer > * {
 
 }
 
+
 @media (min-width:769px) {
     .data-refresh-menu {
         display: none;
@@ -1044,6 +1055,32 @@ footer > * {
         justify-content: space-between;
     }
 
+}
+
+/* ******************** */
+/* *******Dialog*** */
+/* ******************** */
+
+dialog {
+    width: 688px;
+    height: 626px;
+    background-color: hsl(var(--clr-background-body));
+    border-radius: 40px;
+    border: none;
+    outline: none;
+}
+
+dialog::backdrop {
+    background-color: rgba(64, 63, 61, 0.80);
+}
+
+.modal-popup > * {
+    flex-basis: 50%;
+}
+
+.modal-popup img {
+    width: 340;
+    aspect-ratio: 1;
 }
 
 
