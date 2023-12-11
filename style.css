@@ -783,6 +783,14 @@ main.flow > *:where(:not(:last-child)) {
     
 }
 
+@media (hover: hover) {
+    .slider-pic-container:hover {
+        cursor: pointer;
+    }
+}
+
+
+
 .slider-pic-container > .card__img {
     min-width: 100%;
 }
@@ -811,6 +819,10 @@ main.flow > *:where(:not(:last-child)) {
     
 }
 
+.active-control-after-dowload {
+    background-color: hsl(var(--clr-border-dark));
+}
+
 @keyframes progress-fill {
     0% {
       width: 0%;
@@ -819,12 +831,18 @@ main.flow > *:where(:not(:last-child)) {
     100% {
       width: 100%;
     }
+
+    
   }
 
 .active-control-progress {
     background-color: hsl(var(--clr-border-dark));
     height: 100%;
     animation: progress-fill 7s linear;
+}
+
+.active-control-progress.paused {
+    animation-play-state: paused;
 }
 
 

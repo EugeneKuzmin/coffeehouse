@@ -42,11 +42,14 @@ const scrollWidth = carousel.scrollWidth - carousel.clientWidth
 const scrlControls = document.querySelectorAll('.scroll-control > div')
 let currControl = 0;
 
+scrlControls[0].classList.add('active-control-after-dowload')
+
 
 function updControls() {
     scrlControls.forEach(cntrl => 
         {
             cntrl.classList.remove('active-control')
+            cntrl.classList.remove('active-control-after-dowload')
             cntrl.innerHTML = ''
 
     })
@@ -55,6 +58,16 @@ function updControls() {
     progress.classList.add('active-control-progress')
     scrlControls[currControl].appendChild(progress)
 }
+
+carousel.addEventListener('mouseenter', () => {
+    const progress = document.querySelector('.active-control-progress')
+    progress.classList.add('paused')
+});
+
+carousel.addEventListener('mouseleave', () => {
+    const progress = document.querySelector('.active-control-progress')
+    progress.classList.remove('paused')
+});
 
 
 const moveLeft = () => {
