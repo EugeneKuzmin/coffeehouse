@@ -39,22 +39,47 @@ const arrowRight = document.querySelector('#arrowRight')
 
 const scrollWidth = carousel.scrollWidth - carousel.clientWidth
 
+const scrlControls = document.querySelectorAll('.scroll-control > div')
+let currControl = 0;
+
+
+function updControls() {
+    scrlControls.forEach(cntrl => 
+        {
+            cntrl.classList.remove('active-control')
+            cntrl.innerHTML = ''
+
+    })
+    scrlControls[currControl].classList.add('active-control')
+    const progress = document.createElement('div')
+    progress.classList.add('active-control-progress')
+    scrlControls[currControl].appendChild(progress)
+}
+
+
 const moveLeft = () => {
     if(carousel.scrollLeft !== 0) {
-        carousel.scrollLeft -= picWidth
+        carousel.scrollLeft -= picWidth;
+        currControl -= 1;
     }else {
         carousel.scrollLeft = carousel.scrollWidth - picWidth
+        currControl = 2;
     }
+    updControls()
 }
 
 arrowLeft.addEventListener('click',moveLeft)
 
 const moveRight = () => {
-    if(carousel.scrollWidth - picWidth !== carousel.scrollLeft) {
+    if(currControl < 2) {
         carousel.scrollLeft += picWidth
+        currControl += 1;
     } else {
         carousel.scrollLeft = 0
+        currControl = 0
     }
+    updControls()
+   
 }
 
 arrowRight.addEventListener('click',moveRight)

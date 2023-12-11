@@ -88,7 +88,7 @@ body {
 }
 
 body:has(dialog[open])
-/* body:has([data-visible="true"]) */
+body:has([data-visible="true"])
 {
     overflow: hidden
 }
@@ -808,9 +808,26 @@ main.flow > *:where(:not(:last-child)) {
 }
 
 .active-control {
-    background-color: hsl(var(--clr-border-dark));
-
+    
 }
+
+@keyframes progress-fill {
+    0% {
+      width: 0%;
+    }
+  
+    100% {
+      width: 100%;
+    }
+  }
+
+.active-control-progress {
+    background-color: hsl(var(--clr-border-dark));
+    height: 100%;
+    animation: progress-fill 7s linear;
+}
+
+
 
 @media (max-width:480px) {
     .favorite-header-text{

@@ -61,7 +61,7 @@ fetch('./products.json')
             element = productCategory[cardIndex];
             const img = document.createElement('img');
             
-            img.src = `./assets/${currCategory}-${cardIndex}.jpg`
+            img.src = `./assets/${currCategory}-${cardIndex+1}.jpg`
             img.alt = `${element.name}`
             modalPopupImage.appendChild(img)
             modalPopup.appendChild(modalPopupImage)
