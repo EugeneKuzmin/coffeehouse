@@ -1,12 +1,18 @@
 
-let currCategory = 'coffee'
+
+function showMenu(currCategory)
+{
+    
+
 fetch('./products.json')
     .then((response) => response.json())
     .then((json) => 
     {
         
-        let productCategory = json.filter(x => x.category === currCategory )
-        let menuProductCards = document.querySelector('.menu-product-cards')
+        const productCategory = json.filter(x => x.category === currCategory )
+        const menuProductCards = document.querySelector('.menu-product-cards')
+        menuProductCards.innerHTML = ''
+
         for (let index = 0; index < productCategory.length; index++) {
             const element = productCategory[index];
             let article = document.createElement('article');
@@ -235,5 +241,22 @@ fetch('./products.json')
         
     }
     );
+}
+
+showMenu('coffee')
+const categoryButtons = document.querySelectorAll('.tab-item')
+categoryButtons.forEach((btn,index) => btn.addEventListener('click', () => {
+    let nameCategory = 'coffee'
+    if (index === 1){
+        nameCategory = 'tea'
+    }else if(index === 2) {
+        nameCategory = 'dessert'
+    }
+    categoryButtons.forEach(b=>b.classList.remove('active'))
+    btn.classList.add('active')
+    showMenu(nameCategory)
+
+}))
+
 
     

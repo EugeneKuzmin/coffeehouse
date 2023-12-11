@@ -379,21 +379,7 @@ select {
     }
   }
 
-.tab-item.acive{
-    display: flex;
-    background-color: hsl(var(--clr-background-container));
-    color: hsl(var(--clr-background-body));
-    padding: 8px 16px 8px 8px;
-    width: 115px;
-    height: 46px;
-    align-items: center;
-    gap: 8px;
-    border-radius: 100px;
-    border: none;
-
-}
-
-.tab-item{
+  .tab-item{
     display: flex;
     gap: 8px;
     padding: 8px 16px 8px 8px;
@@ -403,10 +389,20 @@ select {
     background-color: transparent;
     color: hsl( var(--clr-text-dark));
     transition: 0.5s ease-in-out;
+    width: 115px;
+    height: 46px;
 }
 
+.tab-item.active{
+    background-color: hsl(var(--clr-background-container));
+    color: hsl(var(--clr-background-body));
+
+}
+
+
+
 @media (hover: hover) {
-    .tab-item-inactive:hover{
+    .tab-item:hover{
         cursor: pointer;
         background-color: hsl(var(--clr-background-container));
         color: hsl(var(--clr-text-light));
