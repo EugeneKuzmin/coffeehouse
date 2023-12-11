@@ -1,16 +1,36 @@
 const dataNavToggle = document.querySelectorAll('[data-nav-toggle]')
+const navigation = document.querySelector('.primary-navigation')
+const menuItems = document.querySelectorAll('.link')
+const menuLnk = document.querySelector('[data-menu-link]')
+const headerBlock = document.querySelector('[data-header]')
+
+function setNavToggle(flag) {
+    navigation.setAttribute("data-visible", flag);
+    dataNavToggle.forEach(l=>{
+        l.setAttribute('aria-expanded',flag)
+    })
+    if(flag){
+        navigation.appendChild(menuLnk)
+    }else{
+        headerBlock.appendChild(menuLnk)
+    }
+
+}
 
 dataNavToggle.forEach(btn => {
     btn.addEventListener('click',() => {
-        let fl = 'true'
-        if(btn.getAttribute('aria-expanded') === 'true'){
-            fl = 'false'
-        }
-        dataNavToggle.forEach(l=>{
-            l.setAttribute('aria-expanded',fl)
-        })
+        let fl = btn.getAttribute('aria-expanded') === 'true'?false:true;
+        setNavToggle(fl)
+        
     })
 })
+
+menuItems.forEach(m=>m.addEventListener('click',()=>{
+    setNavToggle(false)
+}))
+
+
+
 
 // carousel
 

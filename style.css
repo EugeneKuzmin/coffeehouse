@@ -87,7 +87,9 @@ body {
     width: 100%;
 }
 
-body:has(dialog[open]) {
+body:has(dialog[open]),
+body:has([data-visible="true"])
+{
     overflow: hidden
 }
 
@@ -545,14 +547,6 @@ select {
 
 }
 
-@media (max-width:768px) {
-    .menu,
-    [data-menu-link] {
-        display: none;
-    }
-    
-}
-
 /* wrapper */
 .wrapper {
     max-width: 1440px;
@@ -644,6 +638,43 @@ main.flow > *:where(:not(:last-child)) {
         visibility: visible;
         opacity: 1;
     }
+
+    
+
+    .data-header:has(button[aria-expanded="false"]) > [data-menu-link] {
+        display: none;
+    }
+
+    .primary-navigation {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        background-color: hsl( var(--clr-background-body) );
+        inset: 80px 0 0 0;
+        position: fixed;
+        z-index: 1000;
+        transform: translateX(100%);
+        transition: transform 500ms ease-in-out;
+        
+    }
+
+    .primary-navigation > ul {
+        
+        display: flex;
+        flex-direction: column;
+        
+        align-items: center;
+    }
+
+   
+
+    .primary-navigation[data-visible="true"]{
+        transform: translateX(0);
+    }
 }
 
 @media (max-width:480px) {
@@ -654,9 +685,10 @@ main.flow > *:where(:not(:last-child)) {
     .hero {
         padding:60px 16px;
     }
-  
  
 }
+
+
 
 /* ******************** */
 /* *******Enjoy******* */
