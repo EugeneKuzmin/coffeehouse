@@ -87,8 +87,8 @@ body {
     width: 100%;
 }
 
-body:has(dialog[open]),
-body:has([data-visible="true"])
+body:has(dialog[open])
+/* body:has([data-visible="true"]) */
 {
     overflow: hidden
 }
@@ -525,18 +525,12 @@ select {
     background-color: transparent;
 }
 
-.button-burger :first-child {
-    margin-bottom: 8px;
-}
 
 [data-menu-button="false"] {
     display: none;
 }
 
 .button-burger-active[aria-expanded="false"]{
-    display: none;
-}
-.button-burger[aria-expanded="true"]{
     display: none;
 }
 
@@ -628,6 +622,55 @@ main.flow > *:where(:not(:last-child)) {
     color: hsl( var(--clr-text-light));
 }
 
+.hamburger-lines {
+    
+    height: 12px;
+    width: 16px;
+   
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+.hamburger-lines .line {
+    display: block;
+    height: 1px;
+    width: 16px;
+    border-radius: 10px;
+    background: hsl( var(--clr-text-dark));
+  }
+
+  .hamburger-lines .line-top {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+  }
+  
+  .hamburger-lines .line-bottom {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+  }
+
+ 
+  .button-burger[aria-expanded="false"] .hamburger-lines {
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .button-burger[aria-expanded="true"] .hamburger-lines {
+    transform: translateX(3px);
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .button-burger[aria-expanded="true"] .hamburger-lines .line-top {
+    transform: rotate(45deg);
+  }
+  
+  
+  .button-burger[aria-expanded="true"] .hamburger-lines .line-bottom {
+    transform: rotate(-45deg) ;
+  }
+
 @media (max-width:768px) {
     .hero {
         padding-inline: 60px;
@@ -645,6 +688,25 @@ main.flow > *:where(:not(:last-child)) {
         display: none;
     }
 
+    .data-header:has(button[aria-expanded="true"])  [data-menu-link] {
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 40px;
+        margin-top: 71px;
+        margin-left: -15px;
+        justify-content: center;
+        
+    }
+
+    .data-header:has(button[aria-expanded="true"])  [data-menu-link] img {
+        width: 38px;
+        height: 38px;
+        margin-left: 12px;
+        
+    }
+
+  
+
     .primary-navigation {
         width: 100%;
         height: 100%;
@@ -654,7 +716,7 @@ main.flow > *:where(:not(:last-child)) {
         align-items: center;
         
         background-color: hsl( var(--clr-background-body) );
-        inset: 80px 0 0 0;
+        inset: 78px 0 0 0;
         position: fixed;
         z-index: 1000;
         transform: translateX(100%);
@@ -664,13 +726,15 @@ main.flow > *:where(:not(:last-child)) {
 
     .primary-navigation > ul {
         
-        display: flex;
         flex-direction: column;
-        
         align-items: center;
+        gap: 60px;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 40px;
+        margin-top: 78px;
     }
 
-   
 
     .primary-navigation[data-visible="true"]{
         transform: translateX(0);
@@ -713,10 +777,16 @@ main.flow > *:where(:not(:last-child)) {
 
 .slider-pic-container {
     display: flex;
-    justify-content: center;
     overflow: hidden;
     scroll-behavior: smooth;
+    max-width: 480px;
+    
 }
+
+.slider-pic-container > .card__img {
+    min-width: 100%;
+}
+
 
 .favorite-slider-text {
     max-width: 480px;

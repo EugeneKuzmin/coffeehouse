@@ -21,16 +21,12 @@ dataNavToggle.forEach(btn => {
     btn.addEventListener('click',() => {
         let fl = btn.getAttribute('aria-expanded') === 'true'?false:true;
         setNavToggle(fl)
-        
     })
 })
 
 menuItems.forEach(m=>m.addEventListener('click',()=>{
     setNavToggle(false)
 }))
-
-
-
 
 // carousel
 
@@ -41,22 +37,23 @@ const picWidth = picClass.clientWidth
 const arrowLeft = document.querySelector('#arrowLeft')
 const arrowRight = document.querySelector('#arrowRight')
 
-let currScrollPosition = 0
-
 const scrollWidth = carousel.scrollWidth - carousel.clientWidth
 
 const moveLeft = () => {
-    if(!arrowLeft.disabled) {
+    if(carousel.scrollLeft !== 0) {
         carousel.scrollLeft -= picWidth
+    }else {
+        carousel.scrollLeft = carousel.scrollWidth - picWidth
     }
 }
 
 arrowLeft.addEventListener('click',moveLeft)
 
-
 const moveRight = () => {
-    if(!arrowRight.disabled) {
+    if(carousel.scrollWidth - picWidth !== carousel.scrollLeft) {
         carousel.scrollLeft += picWidth
+    } else {
+        carousel.scrollLeft = 0
     }
 }
 
