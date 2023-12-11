@@ -783,11 +783,11 @@ main.flow > *:where(:not(:last-child)) {
     
 }
 
-@media (hover: hover) {
+/* @media (hover: hover) {
     .slider-pic-container:hover {
         cursor: pointer;
     }
-}
+} */
 
 
 
