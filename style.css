@@ -701,8 +701,6 @@ main.flow > *:where(:not(:last-child)) {
         
     }
 
-  
-
     .primary-navigation {
         width: 100%;
         height: 100%;
