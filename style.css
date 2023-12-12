@@ -184,7 +184,14 @@ select {
 /* margins */
 
 .m-4 {
-    margin: 1rem
+    margin: 1rem;
+}
+
+.mt-8 {
+    margin-top: 8px;
+}
+.mt-12 {
+    margin-top: 12px;
 }
 
 .mt-93 {
@@ -337,8 +344,14 @@ select {
     text-align: center;
 }
 
+/* size */
+
 .height20px {
     height: 20px;
+}
+
+.w-full {
+    width: 100%;
 }
 
 .grid-design-buttons{
@@ -429,7 +442,7 @@ select {
 }
 
 .button-secondary{
-    width: 200px;
+    width: 100%;
     height: 44px;
     background-color: transparent;
     border: 1px solid hsl(var(--clr-border-dark));
@@ -1210,6 +1223,7 @@ dialog::backdrop {
 .modal-popup img {
     width: 340;
     aspect-ratio: 1;
+    border-radius: 40px;
 }
 
 

@@ -1,5 +1,7 @@
 
 
+const cardModal =  document.querySelector('[data-modal]')
+
 function showMenu(currCategory)
 {
     
@@ -61,9 +63,12 @@ fetch('./products.json')
         function fillModalContent (cardIndex) {
             const modalPopup = document.querySelector('.modal-popup')
             modalPopup.classList.add('flex')
-            const modalPopupImage = document.createElement('div')
-            const modalInfo = document.createElement('div')
+            modalPopup.classList.add('gap-20')
 
+            const modalPopupImage = document.createElement('div')
+
+            // *****************image section*****************
+            
             element = productCategory[cardIndex];
             const img = document.createElement('img');
             
@@ -71,17 +76,36 @@ fetch('./products.json')
             img.alt = `${element.name}`
             modalPopupImage.appendChild(img)
             modalPopup.appendChild(modalPopupImage)
+
+            // *****************info section*****************
+
+            const modalInfo = document.createElement('div')
+
+            // *** header ***
             
+            const header = document.createElement('div');
+
             const headingInfo = document.createElement('div');
             headingInfo.classList.add('font-heading-3');
             headingInfo.textContent = element.name;
 
+            // *** description ***
+
             const descriptionInfo = document.createElement('div')
             descriptionInfo.textContent = element.description
             descriptionInfo.classList.add("font-body-medium")
-            modalInfo.appendChild(headingInfo)
-            modalInfo.appendChild(descriptionInfo)
+            descriptionInfo.classList.add("mt-12")
+
+            header.appendChild(headingInfo)
+            header.appendChild(descriptionInfo)
+            modalInfo.appendChild(header)
+
+            // *** size ***
             
+            const sizeHeader = document.createElement('div')
+            sizeHeader.classList.add('font-body-medium')
+            sizeHeader.textContent = 'Size'
+
             const tabItemSmall = document.createElement('div')
             tabItemSmall.classList.add('tab-item')
 
@@ -127,13 +151,21 @@ fetch('./products.json')
 
             const sizeButtons = document.createElement('div')
             sizeButtons.classList.add('flex')
+            sizeButtons.classList.add('mt-8')
 
             sizeButtons.appendChild(tabItemSmall)
             sizeButtons.appendChild(tabItemMedium)
             sizeButtons.appendChild(tabItemLarge)
 
+            const sizeBlock = document.createElement('div')
+            sizeBlock.appendChild(sizeHeader)
+            sizeBlock.appendChild(sizeButtons)
 
-            //////////////////////////////////////////////
+            // *** additives ***
+
+            const additivesHeader = document.createElement('div')
+            additivesHeader.classList.add('font-body-medium')
+            additivesHeader.textContent = 'Additives'
 
             const tabItemAdd1 = document.createElement('div')
             tabItemAdd1.classList.add('tab-item')
@@ -183,12 +215,17 @@ fetch('./products.json')
 
             const addButtons = document.createElement('div')
             addButtons.classList.add('flex')
+            addButtons.classList.add('mt-8')
 
             addButtons.appendChild(tabItemAdd1)
             addButtons.appendChild(tabItemAdd2)
             addButtons.appendChild(tabItemAdd3)
 
-            ///////////////////////////////////////////
+            const additivesBlock = document.createElement('div')
+            additivesBlock.appendChild(additivesHeader)
+            additivesBlock.appendChild(addButtons)
+
+            /////////////////////Total//////////////////////
 
             const totalBlock = document.createElement('div')
             totalBlock.classList.add('font-heading-3')
@@ -217,20 +254,24 @@ fetch('./products.json')
             buttonClose.classList.add('button-secondary')
             buttonClose.classList.add('font-link-n-button')
             buttonClose.textContent = 'Close'
+            buttonClose.addEventListener('click',() => {
+                cardModal.close()
+                modalPopup.innerHTML = ''
+            })
 
-            modalInfo.appendChild(sizeButtons)
-            modalInfo.appendChild(addButtons)
+            modalInfo.appendChild(sizeBlock)
+            modalInfo.appendChild(additivesBlock)
             modalInfo.appendChild(totalBlock)
             modalInfo.appendChild(priceInfo)
             modalInfo.appendChild(buttonCloseBlock)
-
-            
+            modalInfo.classList.add('flex')
+            modalInfo.classList.add('flex-column')
+            modalInfo.classList.add('gap-20')
 
             modalPopup.appendChild(modalInfo)
+
         }
-
-
-        const cardModal =  document.querySelector('[data-modal]')
+        
 
         const menuCards =  document.querySelectorAll('[data-menu-card]')
         menuCards.forEach((card,index) => card.addEventListener('click',() => {
