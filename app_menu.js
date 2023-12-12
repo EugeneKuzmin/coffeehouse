@@ -2,6 +2,7 @@
 
 const cardModal =  document.querySelector('[data-modal]')
 
+
 function showMenu(currCategory)
 {
     
@@ -259,6 +260,10 @@ fetch('./products.json')
                 modalPopup.innerHTML = ''
             })
 
+            cardModal.addEventListener("close", (event) => {
+                modalPopup.innerHTML = ''    
+            });
+
             modalInfo.appendChild(sizeBlock)
             modalInfo.appendChild(additivesBlock)
             modalInfo.appendChild(totalBlock)
@@ -275,7 +280,6 @@ fetch('./products.json')
 
         const menuCards =  document.querySelectorAll('[data-menu-card]')
         menuCards.forEach((card,index) => card.addEventListener('click',() => {
-            console.log('cars',card);
             cardModal.showModal()
             fillModalContent(index);
         }))
@@ -299,5 +303,9 @@ categoryButtons.forEach((btn,index) => btn.addEventListener('click', () => {
 
 }))
 
+function closeDialog(event) {
+    if (!event.target.contains(cardModal)) return;
+    cardModal.close();
+  }
 
-    
+  document.addEventListener('click', closeDialog);
