@@ -66,9 +66,10 @@ fetch('./products.json')
             modalPopup.classList.add('flex')
             modalPopup.classList.add('gap-20')
 
-            const modalPopupImage = document.createElement('div')
-
+            
             // *****************image section*****************
+
+            const modalPopupImage = document.createElement('div')
             
             element = productCategory[cardIndex];
             const img = document.createElement('img');
@@ -115,12 +116,15 @@ fetch('./products.json')
             tabItemIconS.classList.add("font-link-n-button-nolineheight")
             tabItemIconS.textContent = 'S'
             
+
+            
             const tabItemContentS = document.createElement('span')
             tabItemContentS.classList.add("font-link-n-button")
             tabItemContentS.textContent = element.sizes.s.size
 
             tabItemSmall.appendChild(tabItemIconS)
             tabItemSmall.appendChild(tabItemContentS)
+            tabItemSmall.classList.add('active')
 
             const tabItemMedium = document.createElement('div')
             tabItemMedium.classList.add('tab-item')
@@ -155,6 +159,7 @@ fetch('./products.json')
 
             const sizeButtons = document.createElement('div')
             sizeButtons.classList.add('flex')
+            sizeButtons.classList.add('flex-wrap')
             sizeButtons.classList.add('mt-8')
             sizeButtons.classList.add('gap-8')
 
@@ -220,6 +225,7 @@ fetch('./products.json')
 
             const addButtons = document.createElement('div')
             addButtons.classList.add('flex')
+            addButtons.classList.add('flex-wrap')
             addButtons.classList.add('mt-8')
             addButtons.classList.add('gap-8')
 

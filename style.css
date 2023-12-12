@@ -408,6 +408,7 @@ select {
     color: hsl( var(--clr-text-dark));
     transition: 0.5s ease-in-out;
     height: 46px;
+    width: fit-content;
 }
 
 .tab-item.active{
@@ -1225,10 +1226,34 @@ dialog::backdrop {
 }
 
 .modal-popup img {
-    width: 340;
+    width: 340px;
     aspect-ratio: 1;
     border-radius: 40px;
 }
+
+@media  (max-width: 768px){
+    dialog {
+        max-width: 90%
+    }
+    .modal-popup img {
+        width: 100%;
+    }
+
+
+}
+@media  (max-width: 390px){
+    .modal-popup > *:first-child{
+        display: none;
+    }
+
+    .modal-popup > * {
+        flex-basis: 100%;
+    }
+    
+
+
+}
+
 
 
 
