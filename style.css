@@ -87,7 +87,7 @@ body {
     width: 100%;
 }
 
-body:has(dialog[open])
+body:has(dialog[open]),
 body:has([data-visible="true"])
 {
     overflow: hidden
