@@ -112,6 +112,7 @@ fetch('./products.json')
 
             const tabItemIconS = document.createElement('div')
             tabItemIconS.classList.add("tab-item-image")
+            tabItemIconS.classList.add("font-link-n-button-nolineheight")
             tabItemIconS.textContent = 'S'
             
             const tabItemContentS = document.createElement('span')
@@ -126,6 +127,7 @@ fetch('./products.json')
 
             const tabItemIconM = document.createElement('div')
             tabItemIconM.classList.add("tab-item-image")
+            tabItemIconM.classList.add("font-link-n-button-nolineheight")
             tabItemIconM.textContent = 'M'
 
             const tabItemContentM = document.createElement('span')
@@ -141,6 +143,7 @@ fetch('./products.json')
 
             const tabItemIconL = document.createElement('div')
             tabItemIconL.classList.add("tab-item-image")
+            tabItemIconL.classList.add("font-link-n-button-nolineheight")
             tabItemIconL.textContent = 'L'
 
             const tabItemContentL = document.createElement('span')
@@ -153,6 +156,7 @@ fetch('./products.json')
             const sizeButtons = document.createElement('div')
             sizeButtons.classList.add('flex')
             sizeButtons.classList.add('mt-8')
+            sizeButtons.classList.add('gap-8')
 
             sizeButtons.appendChild(tabItemSmall)
             sizeButtons.appendChild(tabItemMedium)
@@ -173,7 +177,7 @@ fetch('./products.json')
 
             const tabItemIcon1 = document.createElement('div')
             tabItemIcon1.classList.add("tab-item-image")
-            tabItemIcon1.classList.add("font-link-n-button")
+            tabItemIcon1.classList.add("font-link-n-button-nolineheight")
             tabItemIcon1.textContent = '1'
             
             const tabItemContent1 = document.createElement('span')
@@ -188,7 +192,7 @@ fetch('./products.json')
 
             const tabItemIcon2 = document.createElement('div')
             tabItemIcon2.classList.add("tab-item-image")
-            tabItemIcon2.classList.add("font-link-n-button")
+            tabItemIcon2.classList.add("font-link-n-button-nolineheight")
             tabItemIcon2.textContent = '2'
 
             const tabItemContent2 = document.createElement('span')
@@ -204,7 +208,7 @@ fetch('./products.json')
 
             const tabItemIcon3 = document.createElement('div')
             tabItemIcon3.classList.add("tab-item-image")
-            tabItemIcon3.classList.add("font-link-n-button")
+            tabItemIcon3.classList.add("font-link-n-button-nolineheight")
             tabItemIcon3.textContent = '3'
 
             const tabItemContent3 = document.createElement('span')
@@ -217,6 +221,7 @@ fetch('./products.json')
             const addButtons = document.createElement('div')
             addButtons.classList.add('flex')
             addButtons.classList.add('mt-8')
+            addButtons.classList.add('gap-8')
 
             addButtons.appendChild(tabItemAdd1)
             addButtons.appendChild(tabItemAdd2)
@@ -225,6 +230,7 @@ fetch('./products.json')
             const additivesBlock = document.createElement('div')
             additivesBlock.appendChild(additivesHeader)
             additivesBlock.appendChild(addButtons)
+            additivesBlock.setAttribute('data-additives','')
 
             /////////////////////Total//////////////////////
 
@@ -233,9 +239,9 @@ fetch('./products.json')
             totalBlock.classList.add('flex')
             totalBlock.classList.add('justify-content-between')
             const totalText = document.createElement('div')
-            totalText.textContent = 'Total'
+            totalText.textContent = 'Total:'
             const totalPrice = document.createElement('div')
-            totalPrice.textContent = '7.00$'
+            totalPrice.textContent = '0 $'
             totalBlock.appendChild(totalText)
             totalBlock.appendChild(totalPrice)
             
@@ -275,6 +281,35 @@ fetch('./products.json')
 
             modalPopup.appendChild(modalInfo)
 
+            // *****************price calculation*******************
+
+            let totalPrc = 0
+            let sizePrc = 0
+
+            const sizeBtns = sizeButtons.querySelectorAll('.tab-item')
+            sizeBtns.forEach(b=>b.addEventListener('click',()=>{
+                sizeBtns.forEach(btn=>btn.classList.remove('active'))
+                b.classList.add('active')
+                sizePrc = Number(productCategory[cardIndex].sizes[b.childNodes[0].textContent.toLowerCase()]['add-price'])
+                totalPrice.textContent = `${totalPrc+sizePrc} $`
+            }))
+
+            const additiveButtons = addButtons.querySelectorAll('.tab-item')
+            additiveButtons.forEach((b,i)=>b.addEventListener('click',()=>{
+                b.classList.toggle('active')
+                if( Array.from(b.classList).includes('active')){
+                    totalPrc += Number(productCategory[cardIndex].additives[i]['add-price'])
+                }else{
+                    totalPrc -= Number(productCategory[cardIndex].additives[i]['add-price'])
+                }
+                
+                totalPrice.textContent = `${totalPrc+sizePrc} $`
+
+            }))
+
+
+            
+
         }
         
 
@@ -289,7 +324,8 @@ fetch('./products.json')
 }
 
 showMenu('coffee')
-const categoryButtons = document.querySelectorAll('.tab-item')
+
+const categoryButtons = document.querySelector('.menu-category-buttons').querySelectorAll('.tab-item')
 categoryButtons.forEach((btn,index) => btn.addEventListener('click', () => {
     let nameCategory = 'coffee'
     if (index === 1){

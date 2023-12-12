@@ -155,6 +155,11 @@ select {
     line-height: 150%;
 }
 
+.font-link-n-button-nolineheight{
+    font-size: var(--fs-16px);
+    font-weight: 600;
+}
+
 .font-body-caption {
     font-size: var(--fs-10px);
     font-weight: 600%;
@@ -402,7 +407,6 @@ select {
     background-color: transparent;
     color: hsl( var(--clr-text-dark));
     transition: 0.5s ease-in-out;
-    width: 115px;
     height: 46px;
 }
 
