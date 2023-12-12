@@ -3,6 +3,8 @@ const navigation = document.querySelector('.primary-navigation')
 const menuItems = document.querySelectorAll('.link')
 const menuLnk = document.querySelector('[data-menu-link]')
 const headerBlock = document.querySelector('[data-header]')
+let timeOutInstance = null
+let timeOutPause = false
 
 function setNavToggle(flag) {
     navigation.setAttribute("data-visible", flag);
@@ -62,11 +64,14 @@ function updControls() {
 carousel.addEventListener('mouseenter', () => {
     const progress = document.querySelector('.active-control-progress')
     progress.classList.add('paused')
+    timeOutPause = true
 });
 
 carousel.addEventListener('mouseleave', () => {
     const progress = document.querySelector('.active-control-progress')
     progress.classList.remove('paused')
+    timeOutPause = false
+    console.log(timeOutPause);
 });
 
 
@@ -81,7 +86,12 @@ const moveLeft = () => {
     updControls()
 }
 
-arrowLeft.addEventListener('click',moveLeft)
+arrowLeft.addEventListener('click',()=>{
+    window.clearTimeout(timeOutInstance);
+    moveLeft()
+    startLoop()
+}
+)
 
 const moveRight = () => {
     if(currControl < 2) {
@@ -95,5 +105,25 @@ const moveRight = () => {
    
 }
 
-arrowRight.addEventListener('click',moveRight)
+arrowRight.addEventListener('click',()=>{
+    window.clearTimeout(timeOutInstance);
+    moveRight()
+    startLoop()
+})
+
+
+function startLoop() {
+
+    timeOutInstance = setTimeout(function() {
+
+        if(!timeOutPause){
+            moveRight();
+            startLoop();
+        }
+    }, 7000);
+}
+
+startLoop();
+
+
 
