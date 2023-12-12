@@ -602,21 +602,37 @@ main.flow > *:where(:not(:last-child)) {
     line-height: 150%;
 }
 
+
+
 .hero {
     width: 100%;
     height: auto;
-    background-image: url('./assets/img-hero.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    position: relative;
     padding: 100px;
     border-radius: 40px;
+    
 
+}
+
+
+video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 40px;
+    object-fit: cover;
 }
 .hero-text {
     max-width: 530px;
     gap:30px;
+
+    position: relative;
+    z-index: 1;
 }
+
+
 
 .hero-text > *:where(:not(:last-child)) {
     margin-bottom: 40px;
@@ -1141,6 +1157,8 @@ footer > * {
     transition: transform 0.5s ease-in-out;
     
 }
+
+
 
 @media (hover: hover) {
 
