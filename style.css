@@ -847,10 +847,6 @@ video {
     
 }
 
-.active-control-after-dowload {
-    background-color: hsl(var(--clr-border-dark));
-}
-
 @keyframes progress-fill {
     0% {
       width: 0%;

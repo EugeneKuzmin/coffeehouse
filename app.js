@@ -5,6 +5,9 @@ const menuLnk = document.querySelector('[data-menu-link]')
 const headerBlock = document.querySelector('[data-header]')
 let timeOutInstance = null
 let timeOutPause = false
+let timerStart = new Date();
+let timerEnd = 0;
+let loopDuration = 7000;
 
 function setNavToggle(flag) {
     navigation.setAttribute("data-visible", flag);
@@ -51,7 +54,6 @@ function updControls() {
     scrlControls.forEach(cntrl => 
         {
             cntrl.classList.remove('active-control')
-            cntrl.classList.remove('active-control-after-dowload')
             cntrl.innerHTML = ''
 
     })
@@ -64,14 +66,19 @@ function updControls() {
 carousel.addEventListener('mouseenter', () => {
     const progress = document.querySelector('.active-control-progress')
     progress.classList.add('paused')
+    window.clearTimeout(timeOutInstance);
+    timerEnd = new Date()
     timeOutPause = true
+    
 });
 
 carousel.addEventListener('mouseleave', () => {
     const progress = document.querySelector('.active-control-progress')
     progress.classList.remove('paused')
     timeOutPause = false
-    console.log(timeOutPause);
+    loopDuration = loopDuration - (timerEnd.getTime() - timerStart.getTime())
+    timerStart = new Date()
+    startLoop()
 });
 
 
@@ -82,6 +89,9 @@ const moveLeft = () => {
     }else {
         carousel.scrollLeft = carousel.scrollWidth - picWidth
         currControl = 2;
+    }
+    if(loopDuration !== 7000){
+        loopDuration = 7000
     }
     updControls()
 }
@@ -94,12 +104,16 @@ arrowLeft.addEventListener('click',()=>{
 )
 
 const moveRight = () => {
+    
     if(currControl < 2) {
         carousel.scrollLeft += picWidth
         currControl += 1;
     } else {
         carousel.scrollLeft = 0
         currControl = 0
+    }
+    if(loopDuration !== 7000){
+        loopDuration = 7000
     }
     updControls()
    
@@ -117,10 +131,13 @@ function startLoop() {
     timeOutInstance = setTimeout(function() {
 
         if(!timeOutPause){
+
+            timerStart = new Date()
+            
             moveRight();
             startLoop();
         }
-    }, 7000);
+    }, loopDuration);
 }
 
 startLoop();
