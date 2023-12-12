@@ -241,7 +241,7 @@ fetch('./products.json')
             const totalText = document.createElement('div')
             totalText.textContent = 'Total:'
             const totalPrice = document.createElement('div')
-            totalPrice.textContent = '0 $'
+            totalPrice.textContent = `${element.price} $`
             totalBlock.appendChild(totalText)
             totalBlock.appendChild(totalPrice)
             
@@ -283,7 +283,7 @@ fetch('./products.json')
 
             // *****************price calculation*******************
 
-            let totalPrc = 0
+            let totalPrc = Number(element.price)
             let sizePrc = 0
 
             const sizeBtns = sizeButtons.querySelectorAll('.tab-item')
@@ -291,7 +291,7 @@ fetch('./products.json')
                 sizeBtns.forEach(btn=>btn.classList.remove('active'))
                 b.classList.add('active')
                 sizePrc = Number(productCategory[cardIndex].sizes[b.childNodes[0].textContent.toLowerCase()]['add-price'])
-                totalPrice.textContent = `${totalPrc+sizePrc} $`
+                totalPrice.textContent = `${Number(totalPrc+sizePrc).toFixed(2)} $`
             }))
 
             const additiveButtons = addButtons.querySelectorAll('.tab-item')
@@ -303,7 +303,7 @@ fetch('./products.json')
                     totalPrc -= Number(productCategory[cardIndex].additives[i]['add-price'])
                 }
                 
-                totalPrice.textContent = `${totalPrc+sizePrc} $`
+                totalPrice.textContent = `${Number(totalPrc+sizePrc).toFixed(2)} $`
 
             }))
 
