@@ -3,9 +3,21 @@
 const cardModal =  document.querySelector('[data-modal]')
 
 
+const refreshProducts = document.querySelector('.data-refresh-menu')
+const productCardsBlock = document.querySelector('.menu-product-cards')
+
+refreshProducts.addEventListener('click',()=>{
+  productCardsBlock.classList.add('unfolded')
+  refreshProducts.classList.add('hidden');
+
+})
+
+
 function showMenu(currCategory)
 {
     
+refreshProducts.classList.remove('hidden');
+productCardsBlock.classList.remove('unfolded')
 
 fetch('./products.json')
     .then((response) => response.json())
@@ -60,6 +72,13 @@ fetch('./products.json')
 
             
         }
+
+        if(productCategory.length === 4) {
+            refreshProducts.classList.add('hidden');
+        }else{
+            refreshProducts.classList.remove('hidden');
+        }
+
 
         function fillModalContent (cardIndex) {
             const modalPopup = document.querySelector('.modal-popup')
@@ -351,3 +370,4 @@ function closeDialog(event) {
   }
 
   document.addEventListener('click', closeDialog);
+

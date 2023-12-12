@@ -1175,9 +1175,14 @@ footer > * {
 
 }
 
+.data-refresh-menu.hidden
+     {
+        display: none;
+    }
+
 
 @media (min-width:769px) {
-    .data-refresh-menu {
+    .data-refresh-menu{
         display: none;
     }
 }
@@ -1187,6 +1192,9 @@ footer > * {
 @media (max-width:768px) {
     .menu-product-cards > :nth-child(n+5) {
         display: none;
+    }
+    .menu-product-cards.unfolded > :nth-child(n+5) {
+        display: block
     }
     .mt-93 {
         margin-top: 93px;
