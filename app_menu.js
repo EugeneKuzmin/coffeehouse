@@ -60,7 +60,7 @@ fetch('./products.json')
             
             let price = document.createElement('div')
             price.classList.add('font-heading-3')
-            price.textContent = element.price
+            price.textContent = `$${element.price}`
 
             cardInfo.appendChild(description);
             cardInfo.appendChild(price);
