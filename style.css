@@ -809,6 +809,7 @@ video {
     overflow: hidden;
     scroll-behavior: smooth;
     max-width: 480px;
+    scroll-snap-type: x mandatory;
     
 }
 
@@ -822,6 +823,10 @@ video {
 
 .slider-pic-container > .card__img {
     min-width: 100%;
+}
+.slider-pic-container > * {
+    scroll-snap-align: start;
+    scroll-margin-top: 1rem;
 }
 
 

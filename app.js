@@ -54,6 +54,9 @@ let timerStart = new Date();
 let timerEnd = 0;
 let loopDuration = 7000;
 
+let touchStartPoint
+let touchEndPoint
+
 scrlControls[0].classList.add('active-control-after-dowload')
 
 function updControls() {
@@ -134,6 +137,19 @@ arrowRight.addEventListener('click',()=>{
     window.clearTimeout(timeOutInstance);
     moveRight()
     startLoop()
+})
+
+carousel.addEventListener('touchstart',(e) => {
+    touchStartPoint = e.changedTouches[0].screenX
+})
+
+carousel.addEventListener('touchend',(e) => {
+    touchEndPoint = e.changedTouches[0].screenX
+    if(touchEndPoint - touchStartPoint > 0){
+        moveLeft()
+    }else if(touchEndPoint - touchStartPoint < 0){
+        moveRight()
+    }
 })
 
 
