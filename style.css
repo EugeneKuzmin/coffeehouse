@@ -803,7 +803,8 @@ video {
     font-style: normal;
 }
 
-.slider-pic-container {
+.slider-pic-container,
+.favorite-slider-text {
     display: flex;
     overflow: hidden;
     scroll-behavior: smooth;
@@ -827,9 +828,12 @@ video {
 .favorite-slider-text {
     max-width: 480px;
     display: flex;
-    flex-direction: column;
-    gap: 16px;
     margin-top: 20px;
+    overflow: hidden;
+}
+
+.card__description {
+    min-width: 480px;
 }
 
 

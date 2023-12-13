@@ -3,11 +3,7 @@ const navigation = document.querySelector('.primary-navigation')
 const menuItems = document.querySelectorAll('.link')
 const menuLnk = document.querySelector('[data-menu-link]')
 const headerBlock = document.querySelector('[data-header]')
-let timeOutInstance = null
-let timeOutPause = false
-let timerStart = new Date();
-let timerEnd = 0;
-let loopDuration = 7000;
+
 
 function setNavToggle(flag) {
     navigation.setAttribute("data-visible", flag);
@@ -35,20 +31,30 @@ menuItems.forEach(m=>m.addEventListener('click',()=>{
 
 // carousel
 
-const carousel = document.getElementById('carousel')
+const carousel = document.getElementById('carousel_image')
+const carouselText = document.getElementById('carousel_text')
 const picClass = document.querySelectorAll('.card__img')[0]
 const picWidth = picClass.clientWidth
+
+const textContainer = document.querySelectorAll('.card__description')[0]
+const textContainerWidth = textContainer.clientWidth
 
 const arrowLeft = document.querySelector('#arrowLeft')
 const arrowRight = document.querySelector('#arrowRight')
 
 const scrollWidth = carousel.scrollWidth - carousel.clientWidth
+const scrollTextWidth = carouselText.scrollWidth - carouselText.clientWidth
 
 const scrlControls = document.querySelectorAll('.scroll-control > div')
 let currControl = 0;
 
-scrlControls[0].classList.add('active-control-after-dowload')
+let timeOutInstance = null
+let timeOutPause = false
+let timerStart = new Date();
+let timerEnd = 0;
+let loopDuration = 7000;
 
+scrlControls[0].classList.add('active-control-after-dowload')
 
 function updControls() {
     scrlControls.forEach(cntrl => 
@@ -68,7 +74,7 @@ carousel.addEventListener('mouseenter', () => {
     progress.classList.add('paused')
     window.clearTimeout(timeOutInstance);
     timerEnd = new Date()
-    timeOutPause = true
+    timeOutPause = true;
     
 });
 
@@ -85,14 +91,17 @@ carousel.addEventListener('mouseleave', () => {
 const moveLeft = () => {
     if(carousel.scrollLeft !== 0) {
         carousel.scrollLeft -= picWidth;
+        carouselText.scrollLeft -= textContainerWidth
         currControl -= 1;
     }else {
         carousel.scrollLeft = carousel.scrollWidth - picWidth
+        carouselText.scrollLeft = carouselText.scrollWidth - textContainerWidth
         currControl = 2;
     }
     if(loopDuration !== 7000){
         loopDuration = 7000
     }
+
     updControls()
 }
 
@@ -107,9 +116,11 @@ const moveRight = () => {
     
     if(currControl < 2) {
         carousel.scrollLeft += picWidth
+        carouselText.scrollLeft += textContainerWidth
         currControl += 1;
     } else {
         carousel.scrollLeft = 0
+        carouselText.scrollLeft = 0
         currControl = 0
     }
     if(loopDuration !== 7000){
