@@ -156,6 +156,7 @@ select {
 }
 
 .font-link-n-button-nolineheight{
+    color: hsl( var(--clr-text-dark));
     font-size: var(--fs-16px);
     font-weight: 600;
 }
@@ -342,6 +343,10 @@ select {
 
 .align-items-center {
     align-items: center;
+}
+
+.align-items-start {
+    align-items: flex-start;
 }
 
 /* text align */
@@ -1260,6 +1265,11 @@ dialog::backdrop {
     width: 340px;
     aspect-ratio: 1;
     border-radius: 40px;
+}
+
+.modal-popup .info-img {
+
+    width: 16px;
 }
 
 @media  (max-width: 768px){

@@ -72,6 +72,7 @@ function updControls() {
     scrlControls[currControl].appendChild(progress)
 }
 
+
 carousel.addEventListener('mouseenter', () => {
     const progress = document.querySelector('.active-control-progress')
     progress.classList.add('paused')
@@ -81,7 +82,25 @@ carousel.addEventListener('mouseenter', () => {
     
 });
 
+carouselText.addEventListener('mouseenter', () => {
+    const progress = document.querySelector('.active-control-progress')
+    progress.classList.add('paused')
+    window.clearTimeout(timeOutInstance);
+    timerEnd = new Date()
+    timeOutPause = true;
+    
+});
+
 carousel.addEventListener('mouseleave', () => {
+    const progress = document.querySelector('.active-control-progress')
+    progress.classList.remove('paused')
+    timeOutPause = false
+    loopDuration = loopDuration - (timerEnd.getTime() - timerStart.getTime())
+    timerStart = new Date()
+    startLoop()
+});
+
+carouselText.addEventListener('mouseleave', () => {
     const progress = document.querySelector('.active-control-progress')
     progress.classList.remove('paused')
     timeOutPause = false

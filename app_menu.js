@@ -274,7 +274,16 @@ fetch('./products.json')
             
             const priceInfo = document.createElement('div')
             priceInfo.classList.add('font-body-caption')
-            priceInfo.textContent = 'The cost is not final. Download our mobile app to see the final price and place your order. Earn loyalty points and enjoy your favorite coffee with up to 20% discount.'
+            priceInfo.classList.add('flex')
+            priceInfo.classList.add('gap-8')
+            priceInfo.classList.add('align-items-start')
+            const priceInfoText = document.createElement('div')
+            priceInfoText.textContent = 'The cost is not final. Download our mobile app to see the final price and place your order. Earn loyalty points and enjoy your favorite coffee with up to 20% discount.'
+            const priceInfoPic = document.createElement('img')
+            priceInfoPic.classList.add('info-img')
+            priceInfoPic.src = './assets/info-empty.svg'
+            priceInfo.appendChild(priceInfoPic)
+            priceInfo.appendChild(priceInfoText)
             
             /////////////////////////////////////
             
@@ -292,7 +301,7 @@ fetch('./products.json')
             })
 
             cardModal.addEventListener("close", (event) => {
-                modalPopup.innerHTML = ''    
+                modalPopup.innerHTML = ''
             });
 
             modalInfo.appendChild(sizeBlock)
