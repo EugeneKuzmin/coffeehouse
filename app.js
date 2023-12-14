@@ -90,6 +90,23 @@ carouselText.addEventListener('mouseenter', () => {
     timeOutPause = true;
     
 });
+carousel.addEventListener('touchstart', () => {
+    const progress = document.querySelector('.active-control-progress')
+    progress.classList.add('paused')
+    window.clearTimeout(timeOutInstance);
+    timerEnd = new Date()
+    timeOutPause = true;
+    
+});
+
+carouselText.addEventListener('touchstart', () => {
+    const progress = document.querySelector('.active-control-progress')
+    progress.classList.add('paused')
+    window.clearTimeout(timeOutInstance);
+    timerEnd = new Date()
+    timeOutPause = true;
+    
+});
 
 carousel.addEventListener('mouseleave', () => {
     const progress = document.querySelector('.active-control-progress')
@@ -101,6 +118,23 @@ carousel.addEventListener('mouseleave', () => {
 });
 
 carouselText.addEventListener('mouseleave', () => {
+    const progress = document.querySelector('.active-control-progress')
+    progress.classList.remove('paused')
+    timeOutPause = false
+    loopDuration = loopDuration - (timerEnd.getTime() - timerStart.getTime())
+    timerStart = new Date()
+    startLoop()
+});
+carousel.addEventListener('touchend', () => {
+    const progress = document.querySelector('.active-control-progress')
+    progress.classList.remove('paused')
+    timeOutPause = false
+    loopDuration = loopDuration - (timerEnd.getTime() - timerStart.getTime())
+    timerStart = new Date()
+    startLoop()
+});
+
+carouselText.addEventListener('touchend', () => {
     const progress = document.querySelector('.active-control-progress')
     progress.classList.remove('paused')
     timeOutPause = false
